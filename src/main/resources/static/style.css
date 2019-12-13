@@ -6,11 +6,60 @@ body{
 
 /* Nav Bar */
 
+.menu-icon {
+  width: 80%; 
+  position:absolute;
+  text-alight:right;
+  z-index: 301;
+  margin-top: 20px;
+  font-size:1.5em;
+  float:right;
+  alight-content:right;
+  right:0;
+}
+
+.tab {
+	display: flex;                  
+  	flex-direction: row; 
+  	flex-wrap: nowrap; 
+  	justify-content: space-between;
+	float:right; 
+} 
+
+.menu-icon a{
+	color:white;
+  	text-decoration: none;
+	text-align:right;
+  	margin-right: 30px;	 
+  	transition: all 0.2s linear ;
+}
+
+.menu-icon a:hover {
+  color: #09cbea; /* Add a hover color */
+  font-size:26px;
+  transition: all 0.2s linear ;
+}
+
+.menu-icon .active {
+	font-weight:bold;
+  	color: #000;
+  	font-size:27px;
+  	margin-top:-1px;
+}
+
+#iconLogged{
+	color:white;
+	display:inline;
+	font-size: 20px;
+	font-style:italic;
+	margin-left:30px;
+} 
+
 nav .logo {
     float: left;
     margin-left: 30px;
 }
-  
+
 nav .logo a {
   font-size: 28px;
   line-height: 80px;
@@ -133,6 +182,17 @@ nav {
   margin-right: 5%; */
 }
 
+/* .admin-panel{ */
+/* 	display: */
+/* } */
+#add-form{
+	text-align:center;
+}
+
+.modal-header button .close {
+	float:left;
+}
+
 .err{
   background-image: url("images/empty.jpg");
   height: 620px;
@@ -140,7 +200,7 @@ nav {
    background-position: center;
    background-repeat: no-repeat;
    background-size: cover;
-   
+   font-size:1em;
 }
 
 .heading{
@@ -160,7 +220,7 @@ nav {
   text-shadow: #313131; /*TODO: Why not working? */
 }
 .err .heading h3 span{
-  font-size: 1.2em;
+  font-size: 3em;
 }
 
 /* Images */

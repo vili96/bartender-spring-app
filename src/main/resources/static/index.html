@@ -1,56 +1,68 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Bartender App</title>
+	<meta charset="UTF-8">
+	<title>Bartender App</title>
 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-
-<link rel="stylesheet" href="style.css">
-
-
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>	
+	
 </head>
 <body>
+	<!-- <div class="container"> -->
 
-    <!-- <div class="container"> -->
-    
-        <nav>
-            <div class="logo">
-                <a href="index.html">Bar<em>tender</em></a>
-            </div>
-            <div class="menu-icon">
-            <span></span>
-            </div>
-        </nav>
+	<nav>
+		<div class="logo">
+			<a href="index.html">Bar<em>tender</em></a>
+			<div id="iconLogged"><i class="fa fa-user-circle"></i>&nbsp <span id="loggedUser"></span></div>
+		</div>
+		<div class="menu-icon">
+			<div class="tab" id="tabLogout"><a href="#"><i class="fa fa-sign-out"></i> Logout</a></div>
+			<div class="tab" id="tabRegister"><a href="/login.html"><i class="fa fa-list-alt"></i> Register</a></div>
+			<div class="tab" id="tabLogin"><a href="/login.html"><i class="fa fa-sign-in"></i> Login</a></div>
+			<div class="tab" id="tabFavorites"><a href="/favorite_cocktails.html"><i class="fa fa-heart"></i> Favorites</a></div>
+			<div class="tab"><a href="/all_cocktails.html"><i class="fa fa-glass"></i> Cocktails</a></div>
+			<div class="tab"><a href="#"><i class="fa fa-search"></i> Search</a></div>
+			<div class="tab"><a class="active" href="#"><i class="fa fa-home"></i> Home</a></div>
+		</div>
+	</nav>
 
-        <div id="video-container">
-            <div class="video-overlay"></div>
-            <div class="video-content">
-                <div class="inner">
-                    <h1>Welcome to Bar<em>tender</em></h1>
-                    <p>Website for world's most famous cocktails</p>
-                    <p>Recipes, Ingredients and more...</p>   
-                    <form class="homeForm" id="homeForm"  action="find_cocktails.html" method="GET"> <!-- action="find_cocktails.html" -->
-                        <div class="input-group">
-                            <input type="text" id="cocktailName" name="cocktailName" placeholder="Search for a Cocktail..."> 
-                            <button type="submit" class="btn btn-info" id="getCocktail"><i class="fa fa-search"></i></button>
-                            <!-- <a href="#" id="getCocktail" class="btn btn-info"><i class="fa fa-search"></i></a> -->
-                        </div>
-                    </form>
-                    
-                </div>
-            </div>
-            <video autoplay="" loop="" muted>
-                <source src="images/cocktails-video.mp4" type="video/mp4" />
-            </video>
-        </div>
-    
-    
-    <!-- </div> -->
+	<div id="video-container">
+		<div class="video-overlay"></div>
+		<div class="video-content">
+			<div class="inner">
+				<h1>
+					Welcome to Bar<em>tender</em>
+				</h1>
+				<p>Website for world's most famous cocktails</p>
+				<p>Recipes, Ingredients and more...</p>
+				<form class="homeForm" id="homeForm" action="find_cocktails.html"
+					method="GET">
+					<!-- action="find_cocktails.html" -->
+					<div class="input-group">
+						<input type="text" id="cocktailName" name="cocktailName"
+							placeholder="Search for a Cocktail...">
+						<button type="submit" class="btn btn-info" id="getCocktail">
+							<i class="fa fa-search"></i>
+						</button>
+						<!-- <a href="#" id="getCocktail" class="btn btn-info"><i class="fa fa-search"></i></a> -->
+					</div>
+				</form>
+
+			</div>
+		</div>
+		<video autoplay="" loop="" muted>
+			<source src="images/cocktails-video.mp4" type="video/mp4" />
+		</video>
+	</div>
 
 
-    <!-- <a href="#" id="getCocktail" class="btn btn-info">Check Temperature</a>
+	<!-- </div> -->
+
+
+	<!-- <a href="#" id="getCocktail" class="btn btn-info">Check Temperature</a>
     <p id="writeItDown"> </p>
     <div class="test" id="test" style="background-color: aqua; width: 20px; height: 20px;">TEST</div>
     <div class="item">
@@ -58,110 +70,115 @@
         <div></div>
     </div> -->
 
-    <div class="container">
-        <div class="row mt-30 ">
-            <div class="col-md-12"><h3 class="heading">Select your favorite ingredient</h3></div>
-            <div class="col-md-2 col-sm-4 item-container">
-                <div class="box6">
-                    <img src="https://www.thecocktaildb.com/images/ingredients/Bourbon.png" alt="">
-                    <div class="box-content">
-                        <h3 class="title">Williamson</h3>
-                        <span class="post">Web Developer</span>
-                        <ul class="icon">
-                            <li><a href="#" class="fa fa-search"></a></li>
-                            <li><a href="#" class="fa fa-link"></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-2 col-sm-4 item-container">
-                <div class="box6">
-                    <img src="https://www.thecocktaildb.com/images/ingredients/Gin.png" alt="">
-                    <div class="box-content">
-                        <h3 class="title">Kristiana</h3>
-                        <span class="post">Web Designer</span>
-                        <ul class="icon">
-                            <li><a href="#" class="fa fa-search"></a></li>
-                            <li><a href="#" class="fa fa-link"></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-2 col-sm-4 item-container">
-                <div class="box6">
-                    <img src="https://www.thecocktaildb.com/images/ingredients/Vodka.png" alt="">
-                    <div class="box-content">
-                        <h3 class="title">Kristiana</h3>
-                        <span class="post">Web Designer</span>
-                        <ul class="icon">
-                            <li><a href="#" class="fa fa-search"></a></li>
-                            <li><a href="#" class="fa fa-link"></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-2 col-sm-4 item-container">
-                <div class="box6">
-                    <img src="https://www.thecocktaildb.com/images/ingredients/Champagne.png" alt="">
-                    <div class="box-content">
-                        <h3 class="title">Kristiana</h3>
-                        <span class="post">Web Designer</span>
-                        <ul class="icon">
-                            <li><a href="#" class="fa fa-search"></a></li>
-                            <li><a href="#" class="fa fa-link"></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-2 col-sm-4 item-container">
-                <div class="box6">
-                    <img src="https://www.thecocktaildb.com/images/ingredients/Whiskey.png" alt="">
-                    <div class="box-content">
-                        <h3 class="title">Kristiana</h3>
-                        <span class="post">Web Designer</span>
-                        <ul class="icon">
-                            <li><a href="#" class="fa fa-search"></a></li>
-                            <li><a href="#" class="fa fa-link"></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-2 col-sm-4 item-container">
-                <div class="box6">
-                    <img src="https://www.thecocktaildb.com/images/ingredients/Tequila.png" alt="">
-                    <div class="box-content">
-                        <h3 class="title">Kristiana</h3>
-                        <span class="post">Web Designer</span>
-                        <ul class="icon">
-                            <li><a href="#" class="fa fa-search"></a></li>
-                            <li><a href="#" class="fa fa-link"></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+	<div class="container">
+		<div class="row mt-30 ">
+			<div class="col-md-12">
+				<h3 class="heading">Select your favorite ingredient</h3>
+			</div>
+			<div class="col-md-2 col-sm-4 item-container">
+				<div class="box6">
+					<img
+						src="https://www.thecocktaildb.com/images/ingredients/Bourbon.png"
+						alt="">
+					<div class="box-content">
+						<h3 class="title">Williamson</h3>
+						<span class="post">Web Developer</span>
+						<ul class="icon">
+							<li><a href="#" class="fa fa-search"></a></li>
+							<li><a href="#" class="fa fa-link"></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-2 col-sm-4 item-container">
+				<div class="box6">
+					<img src="https://www.thecocktaildb.com/images/ingredients/Gin.png"
+						alt="">
+					<div class="box-content">
+						<h3 class="title">Kristiana</h3>
+						<span class="post">Web Designer</span>
+						<ul class="icon">
+							<li><a href="#" class="fa fa-search"></a></li>
+							<li><a href="#" class="fa fa-link"></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-2 col-sm-4 item-container">
+				<div class="box6">
+					<img
+						src="https://www.thecocktaildb.com/images/ingredients/Vodka.png"
+						alt="">
+					<div class="box-content">
+						<h3 class="title">Kristiana</h3>
+						<span class="post">Web Designer</span>
+						<ul class="icon">
+							<li><a href="#" class="fa fa-search"></a></li>
+							<li><a href="#" class="fa fa-link"></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-2 col-sm-4 item-container">
+				<div class="box6">
+					<img
+						src="https://www.thecocktaildb.com/images/ingredients/Champagne.png"
+						alt="">
+					<div class="box-content">
+						<h3 class="title">Kristiana</h3>
+						<span class="post">Web Designer</span>
+						<ul class="icon">
+							<li><a href="#" class="fa fa-search"></a></li>
+							<li><a href="#" class="fa fa-link"></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-2 col-sm-4 item-container">
+				<div class="box6">
+					<img
+						src="https://www.thecocktaildb.com/images/ingredients/Whiskey.png"
+						alt="">
+					<div class="box-content">
+						<h3 class="title">Kristiana</h3>
+						<span class="post">Web Designer</span>
+						<ul class="icon">
+							<li><a href="#" class="fa fa-search"></a></li>
+							<li><a href="#" class="fa fa-link"></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-2 col-sm-4 item-container">
+				<div class="box6">
+					<img
+						src="https://www.thecocktaildb.com/images/ingredients/Tequila.png"
+						alt="">
+					<div class="box-content">
+						<h3 class="title">Kristiana</h3>
+						<span class="post">Web Designer</span>
+						<ul class="icon">
+							<li><a href="#" class="fa fa-search"></a></li>
+							<li><a href="#" class="fa fa-link"></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
 
-    <footer>
-        <div class="footer-container">
-            <div class="col-md-12">
-                <p>Copyright &copy; <i><b>2019 Goat LTD</b></i> | Designed by Velina</p>
-            </div>
-        </div>
-    </footer>
+	<footer>
+		<div class="footer-container">
+			<div class="col-md-12">
+				<p>
+					Copyright &copy; <i><b>2019 Goat LTD</b></i> | Designed by Velina
+				</p>
+			</div>
+		</div>
+	</footer>
 
-    <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-3.4.1.js" ></script>
-    <script type="text/javascript" src="script.js"></script>
-    <script>
-        function hideText() {
-            $('.image').hover(function() {
-                $(this).animate({opacity: 1.0}, 300);
-	        }, function() {
-                $(this).animate({opacity: 0.5}, 300);
-            });
-        };
-    </script>
+	<!-- Scripts -->
+	<script type="text/javascript" src="script.js"></script>
 </body>
 </html>

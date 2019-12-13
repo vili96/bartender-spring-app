@@ -1,9 +1,9 @@
-package com.spring.repositories;
+package com.spring.bartenderapp.repositories;
 
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import com.spring.models.User;
+import com.spring.bartenderapp.models.User;
 
 @Repository
 public interface IUserRepo extends JpaRepository<User, Integer> {
@@ -12,4 +12,5 @@ public interface IUserRepo extends JpaRepository<User, Integer> {
 	List<User> findByUsernameContaining(String username);
 
 	User findByUsername(String username);
+	
 }

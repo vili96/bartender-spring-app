@@ -1,11 +1,10 @@
-package com.spring.models;
+package com.spring.bartenderapp.models;
 
 import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -18,7 +17,7 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 @JsonIgnoreProperties({ "cocktails" }) // skip the field from being returned in json response
 public class User {
 
@@ -32,7 +31,8 @@ public class User {
 	@Column(name = "password", length = 40, nullable = false)
 	private String password;
 
-	@OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+	@OneToMany()
+	@JoinColumn(name = "user_id")
 	private List<Cocktail> cocktails;
 
 	@ManyToMany()
@@ -85,6 +85,5 @@ public class User {
 	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
 	}
-	
 	
 }
