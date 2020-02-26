@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title>Bartender App</title>
+	<meta charset="UTF-8">
+	<title>Bartender App</title>
 
 	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-	<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-	<link
-	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-	rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="style.css">
 	<!-- 	bootstrap js -->
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+	</script>
 
 </head>
+
 <body>
 	<nav>
 		<div class="logo">
@@ -27,9 +28,10 @@
 			<div class="tab" id="tabLogout"><a href="#"><i class="fa fa-sign-out"></i> Logout</a></div>
 			<div class="tab" id="tabRegister"><a href="/login.html"><i class="fa fa-list-alt"></i> Register</a></div>
 			<div class="tab" id="tabLogin"><a href="/login.html"><i class="fa fa-sign-in"></i> Login</a></div>
-			<div class="tab" id="tabFavorites"><a href="/favorite_cocktails.html"><i class="fa fa-heart"></i> Favorites</a></div>
+			<div class="tab" id="tabFavorites"><a href="/favorite_cocktails.html"><i class="fa fa-heart"></i>
+					Favorites</a></div>
 			<div class="tab"><a class="active" href="#/"><i class="fa fa-glass"></i> Cocktails</a></div>
-			<div class="tab"><a href="#"><i class="fa fa-search"></i> Search</a></div>
+			<div class="tab"><a href="/search_cocktails.html"><i class="fa fa-search"></i> Search</a></div>
 			<div class="tab"><a href="/index.html"><i class="fa fa-home"></i> Home</a></div>
 		</div>
 	</nav>
@@ -46,8 +48,7 @@
 				<form class="homeForm" id="homeForm">
 					<!-- action="find_cocktail.html" -->
 					<div class="input-group">
-						<input type="text" id="cocktailName" name="cocktailName"
-							placeholder="Search for a Cocktail...">
+						<input type="text" id="cocktailName" name="cocktailName" placeholder="Search for a Cocktail...">
 						<button type="submit" class="btn btn-info" id="getCocktail">
 							<i class="fa fa-search"></i>
 						</button>
@@ -61,112 +62,114 @@
 		</video>
 	</div>
 
- <div class="container">
- 		<div class="row mt-30 d-flex justify-content-center">
-            <div class="col-md-12 d-flex justify-content-center mt-4 admin-panel">
+	<div class="container">
+		<div class="row mt-30 d-flex justify-content-center">
+			<div class="col-md-12 d-flex justify-content-center mt-4 admin-panel">
 				<button type="submit" class="btn btn-lg btn-info" id="addCocktail">
 					<i class="fa fa-plus"></i> Add New Cocktail
 				</button>
 			</div>
-        </div>
-        <div class="row mt-30 ">
+		</div>
+		<div class="row mt-30 ">
 			<div class="col-md-12">
 				<h3 class="heading">All Cocktails:</h3>
 			</div>
-			<div class="col-md-12">
+			<div class="col-md-12 d-flex justify-content-center">
+					<button type="submit" class="btn btn-lg btn-light mb-2" id="changeLayBtn">
+						<i class="fa fa-square"></i> Change Layout
+					</button>
 				<p id="writeItDown"></p>
 			</div>
 			<ul class="list-group" style="min-height: 241px;" id="contentList">
 
-				<li class="list-group-item" style="display: none" id="cloneMe">
+				 <li class="list-group-item" style="display: none" id="cloneMe"> <!--layout-to-change -->
 					<div class="row">
-					
-					
-<!-- 			<div class="col-md-2 col-sm-4 item-container"> -->
-<!-- 				<div class="box6"> -->
-<!-- 					<img -->
-<!-- 						src="https://www.thecocktaildb.com/images/ingredients/Bourbon.png" -->
-<!-- 						alt=""> -->
-<!-- 					<div class="box-content"> -->
-<!-- 						<h3 class="title">Williamson</h3> -->
-<!-- 						<span class="post">Web Developer</span> -->
-<!-- 						<ul class="icon"> -->
-<!-- 							<li><a href="#" class="fa fa-search"></a></li> -->
-<!-- 							<li><a href="#" class="fa fa-link"></a></li> -->
-<!-- 						</ul> -->
-<!-- 					</div> -->
-<!-- 				</div> -->
-<!-- 			</div> -->
-					
 						<div class=" col-md-4 col-sm-2 col-xs-3 box6">
 							<img src="images/empty.jpg" class="thumbnail img-responsive">
 						</div>
 						<div class="col-md-4 col-sm-7 col-xs-6">
 							<h4></h4>
-							<span></span>
-							<p></p>
+							<!-- <span class="is-alcoholic"></span> -->
+							<p class="toHide"></p>
+							<div class="title"><i>Ingredients:</i></div>
 							<h6 class="ingredients"></h6>
 						</div>
-						<div class=" col-md-4 col-sm-3 col-xs-3">
-							<button type="button" class="btn btn-primary pull-right remove-post edit-cocktail-btn">
-								<span class="glyphicon glyphicon-edit"></span>
-								<span class="hidden-xs">Edit</span>
-							</button>
-						</div>
-						<div class=" col-md-4 col-sm-3 col-xs-3">
-							<button type="button" class="btn btn-danger pull-right remove-post delete-cocktail-btn">
-								<span class="glyphicon glyphicon-remove"></span>
-								<span class="hidden-xs">Delete</span>
-							</button>
+						<div class="row d-flex align-items-baseline">
+							<div class=" col-md-6 col-sm-3 col-xs-3">
+								<button type="button" class="btn btn-secondary pull-right remove-post edit-cocktail-btn">
+									<span class="glyphicon glyphicon-edit"></span>
+									<span class="hidden-xs">Edit</span>
+								</button>
+							</div>
+							<div class=" col-md-6 col-sm-3 col-xs-3">
+								<button type="button" class="btn btn-danger pull-right remove-post delete-cocktail-btn">
+									<span class="glyphicon glyphicon-remove"></span>
+									<span class="hidden-xs">Delete</span>
+								</button>
+							</div>
 						</div>
 					</div>
 				</li>
 			</ul>
 		</div>
-    </div>
+	</div>
 
-<!-- Add cocktail modal -->
-<div id="add-cocktail-modal" class="modal fade" 
-	role="dialog" tabindex="-1">
-	<div class="modal-dialog modal-sm">
-		<div class="modal-content">
-			<div class="modal-header">
-			<h4>Add</h4>
-			<button class="close btn btn-danger" data-dismiss="modal"
-			aria-label="Close"			>
-			<span aria-hidden="true">&times;</span>
-			</button>
-			</div>
-			<div class="modal-body justify-content-center">
-				<div id="add-form">
-					<div class="form-group">
-						<label for="name">Name</label>
-						<input type="text" required class="form-control" id="name" name="name" placeholder="Mojito">
-					</div>
-					<div class="form-group">
-						<label for="instructions">Instructions</label>
-						<textarea required class="form-control" id="instructions" name="instructions" placeholder="Mix the ingredients with ice..." rows=5></textarea> 
-					</div>
-					<div class="form-group">
-						<label for="isAlcoholic">Is it alcoholic?</label>
-						<input required type="checkbox" class="form-control" id="isAlcoholic" name="isAlcoholic">
-					</div>
-					<div class="form-group">
-						<label for="isAlcoholic">Ingredients</label>
-					</div>
-					
-					<input type="hidden" value="add" name="router" />
-					
+	<!-- Add cocktail modal -->
+	<div id="add-cocktail-modal" class="modal fade" role="dialog" tabindex="-1">
+		<div class="modal-dialog modal-sm">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4>Add</h4>
+					<button class="close btn btn-danger" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
 				</div>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				<button type="submit" id="saveCocktail" form="add-form" class="btn btn-info">Save</button>
-				<button type="submit" id="saveEditCocktail" form="add-form" class="btn btn-info">Edit</button>
+				<div class="modal-body justify-content-center">
+					<!-- <form> -->
+					<form id="add-form" method="" action="#">
+						<div class="form-group">
+							<label for="name">Name</label>
+							<input type="text" required class="form-control" id="name" name="name" placeholder="Mojito">
+						</div>
+						<div class="form-group">
+							<label for="instructions">Instructions</label>
+							<textarea required class="form-control" id="instructions" name="instructions"
+								placeholder="Mix the ingredients with ice..." rows=5></textarea>
+						</div>
+						<div class="form-group">
+							<label for="isAlcoholic">Is it alcoholic?</label>
+							<input type="checkbox" class="form-control" id="isAlcoholic" name="isAlcoholic">
+						</div>
+						<div class="form-group">
+							<label for="ingredients">Ingredients</label>
+							<select multiple class="form-control" id="ingredients" name="ingredients">
+								<option value="1">Vodka</option>
+								<option value="2">Gin</option>
+								<option value="3">Whiskey</option>
+								<option value="4">Bourbon</option>
+								<option value="5">Tequila</option>
+								<option value="6">Champagne</option>
+								<option value="7">White Rum</option>
+								<option value="8">Lime Juice</option>
+								<option value="9">Orange Juice</option>
+								<option value="10">Grenadine</option>
+							</select>
+						</div>
+
+						<input type="hidden" value="add" name="router" />
+
+					</form>
+					<!-- </form> -->
+
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="submit" id="saveCocktail" form="add-form" class="btn btn-info">Save</button>
+					<button type="submit" id="saveEditCocktail" form="add-form" class="btn btn-info">Edit</button>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
 
 	<footer>
 		<div class="footer-container">
@@ -177,8 +180,11 @@
 	</footer>
 
 	<!-- Scripts -->
+	<script type="text/javascript" src="/scripts/login.js"></script>
+	<script type="text/javascript" src="/scripts/search.js"></script>
 	<script type="text/javascript" src="/scripts/cocktails_script.js"></script>
 	<script type="text/javascript" src="script.js"></script>
-	
+
 </body>
+
 </html>

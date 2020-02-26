@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<meta charset="UTF-8">
 	<title>Login</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
 </head>
+
 <body>
-<h1>LOGIN PAGE MAINA</h1>
-<div class="container">
-
-<div class="row">
+	
+	<div class="container text-light">
+		<div class="row  d-flex justify-content-center">
+			<h1 class="text-justify text-light">LOGIN</h1>
+		</div>
+		<div class="row d-flex justify-content-center">
 			
-
-			<div class="col container-stuff">
+			<div class="col-md-8 container-stuff">
 				<form action="login" method="post" id="login-form">
 
 					<div class="form-group">
@@ -22,87 +27,86 @@
 							<div class="input-group-prepend">
 								<span class="input-group-text">
 									<i class="fa fa-user"></i>
-								</span> 
+								</span>
 							</div>
-							<input class="form-control" type="text" id="username"
-								name="username" placeholder="Потребител">
+							<input class="form-control" type="text" id="username" name="username"
+								placeholder="Username">
 						</div>
 					</div>
-						
-					
+
+
 					<div class="form-group">
 						<div class="input-group">
 							<div class="input-group-prepend">
 								<span class="input-group-text">
 									<i class="fa fa-lock"></i>
-								</span> 
-							</div>							
-								
-							<input class="form-control" type="password" id="password"
-							name="password" placeholder="Парола">
+								</span>
+							</div>
+
+							<input class="form-control" type="password" id="password" name="password"
+								placeholder="Password">
 						</div>
 					</div>
 
 					<input type="hidden" name="router" value="login">
 
-					<button type="submit" class="btn btn-primary"  id="login"> Влез </button>
-					<button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#register-modal" id="register"> Регистрация </button>
-				
+					<button type="submit" class="btn btn-primary" id="login"> Login </button>
+
 				</form>
 			</div>
 		</div>
 
+		<div class="row  d-flex justify-content-center">
+			<h1 class="text-justify text-light">RGISTER</h1>
+		</div>
 
-			<form id="register-form" action="register" method="post">
-					<div class="form-group">
-						<label for="register_user">Потребител</label>
-						<input type="text" class="form-control"
-						id="register_user" name="username" placeholder="Потребител">
-					</div>
-					<div class="form-group">
-						<label for="register_pass">Парола</label>
-						<input type="password" class="form-control"
-						id="register_pass" name="password" placeholder="Парола">
-					</div>
-					
-					<input type="hidden" value="register" name="router" />
-					
-					<div class="form-group">
-						<label for="confirm_register_pass">Повтори паролата</label>
-						<input type="password" class="form-control"
-						id="confirm_register_pass" name="repeatPassword" placeholder="Парола">
-					</div>
-				<button type="button" class="btn btn-default" data-dismiss="modal">Затвори</button>
-				<button type="submit" form="register-form" class="btn btn-success">Регистрация</button>
-				</form>
-				
+		<div class="row d-flex justify-content-center">
+			<form id="register-form" class="col-md-8" action="register" method="post">
+				<div class="form-group">
+					<label for="register_user">User</label>
+					<input type="text" class="form-control" id="register_user" name="username" placeholder="Username">
+				</div>
+				<div class="form-group">
+					<label for="register_pass">Password</label>
+					<input type="password" class="form-control" id="register_pass" name="password" placeholder="Password">
+				</div>
 
-</div>
+				<input type="hidden" value="register" name="router" />
+
+				<div class="form-group">
+					<label for="confirm_register_pass">Repeat password</label>
+					<input type="password" class="form-control" id="confirm_register_pass" name="repeatPassword"
+						placeholder="Password">
+				</div>
+				<button type="submit" form="register-form" class="btn btn-success">Register</button>
+			</form>
+		</div>
+
+	</div>
 
 
-<script>
-$('#login-form').submit(function (e) {
-	console.log("TEEEEEEEEEES");
-	e.preventDefault(); //prevents the default event of the element
-	$.ajax({
-		url:"/login", //the action of the form
-		method:"POST",
-		data:{
-			username:$("#username").val(),
-			password:$("#password").val()
-		},
-		success:function(data){
-			console.log("Response is: "+data);
-			window.location.replace(data);
-		},
-		fail:function(){
-			console.log("Error logging in: "+data);
-			window.location.href("error.html");
-		}
-	});
-    
-});
+	<script>
+		$('#login-form').submit(function (e) {
+			e.preventDefault(); //prevents the default event of the element
+			$.ajax({
+				url: "/login", //the action of the form
+				method: "POST",
+				data: {
+					username: $("#username").val(),
+					password: $("#password").val()
+				},
+				success: function (data) {
+					console.log("Response is: " + data);
+					window.location.replace(data);
+				},
+				fail: function () {
+					console.log("Error logging in: " + data);
+					window.location.href("error.html");
+				}
+			});
 
-</script>
+		});
+	</script>
 </body>
+
 </html>

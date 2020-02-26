@@ -8,6 +8,8 @@
 	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="style.css">
 	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>	
+	<!-- 	bootstrap js -->
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 	
 </head>
 <body>
@@ -24,7 +26,7 @@
 			<div class="tab" id="tabLogin"><a href="/login.html"><i class="fa fa-sign-in"></i> Login</a></div>
 			<div class="tab" id="tabFavorites"><a href="/favorite_cocktails.html"><i class="fa fa-heart"></i> Favorites</a></div>
 			<div class="tab"><a href="/all_cocktails.html"><i class="fa fa-glass"></i> Cocktails</a></div>
-			<div class="tab"><a href="#"><i class="fa fa-search"></i> Search</a></div>
+			<div class="tab"><a href="/search_cocktails.html"><i class="fa fa-search"></i> Search</a></div>
 			<div class="tab"><a class="active" href="#"><i class="fa fa-home"></i> Home</a></div>
 		</div>
 	</nav>
@@ -38,15 +40,14 @@
 				</h1>
 				<p>Website for world's most famous cocktails</p>
 				<p>Recipes, Ingredients and more...</p>
-				<form class="homeForm" id="homeForm" action="find_cocktails.html"
-					method="GET">
+				<form class="homeForm" id="homeForm" method= "" action="#">
 					<!-- action="find_cocktails.html" -->
 					<div class="input-group">
-						<input type="text" id="cocktailName" name="cocktailName"
-							placeholder="Search for a Cocktail...">
-						<button type="submit" class="btn btn-info" id="getCocktail">
-							<i class="fa fa-search"></i>
-						</button>
+						<!-- <input type="text" id="cocktailName" name="cocktailName"
+							placeholder="Search for a Cocktail..."> -->
+						<a href="/search_cocktails.html" class="btn btn-info">
+							<i class="fa fa-search"> Search for cocktails</i>
+						</a>
 						<!-- <a href="#" id="getCocktail" class="btn btn-info"><i class="fa fa-search"></i></a> -->
 					</div>
 				</form>
@@ -57,18 +58,6 @@
 			<source src="images/cocktails-video.mp4" type="video/mp4" />
 		</video>
 	</div>
-
-
-	<!-- </div> -->
-
-
-	<!-- <a href="#" id="getCocktail" class="btn btn-info">Check Temperature</a>
-    <p id="writeItDown"> </p>
-    <div class="test" id="test" style="background-color: aqua; width: 20px; height: 20px;">TEST</div>
-    <div class="item">
-        <div></div>
-        <div></div>
-    </div> -->
 
 	<div class="container">
 		<div class="row mt-30 ">
@@ -81,7 +70,7 @@
 						src="https://www.thecocktaildb.com/images/ingredients/Bourbon.png"
 						alt="">
 					<div class="box-content">
-						<h3 class="title">Williamson</h3>
+						<h3 class="title">Bourbon</h3>
 						<span class="post">Web Developer</span>
 						<ul class="icon">
 							<li><a href="#" class="fa fa-search"></a></li>
@@ -95,8 +84,8 @@
 					<img src="https://www.thecocktaildb.com/images/ingredients/Gin.png"
 						alt="">
 					<div class="box-content">
-						<h3 class="title">Kristiana</h3>
-						<span class="post">Web Designer</span>
+						<h3 class="title">Gin</h3>
+						<span class="post">Alcoholic drink</span>
 						<ul class="icon">
 							<li><a href="#" class="fa fa-search"></a></li>
 							<li><a href="#" class="fa fa-link"></a></li>
@@ -110,8 +99,8 @@
 						src="https://www.thecocktaildb.com/images/ingredients/Vodka.png"
 						alt="">
 					<div class="box-content">
-						<h3 class="title">Kristiana</h3>
-						<span class="post">Web Designer</span>
+						<h3 class="title">Vodka</h3>
+						<span class="post">Alcoholic drink</span>
 						<ul class="icon">
 							<li><a href="#" class="fa fa-search"></a></li>
 							<li><a href="#" class="fa fa-link"></a></li>
@@ -125,8 +114,8 @@
 						src="https://www.thecocktaildb.com/images/ingredients/Champagne.png"
 						alt="">
 					<div class="box-content">
-						<h3 class="title">Kristiana</h3>
-						<span class="post">Web Designer</span>
+						<h3 class="title">Champagne</h3>
+						<span class="post">Alcoholic drink</span>
 						<ul class="icon">
 							<li><a href="#" class="fa fa-search"></a></li>
 							<li><a href="#" class="fa fa-link"></a></li>
@@ -140,8 +129,8 @@
 						src="https://www.thecocktaildb.com/images/ingredients/Whiskey.png"
 						alt="">
 					<div class="box-content">
-						<h3 class="title">Kristiana</h3>
-						<span class="post">Web Designer</span>
+						<h3 class="title">Whiskey</h3>
+						<span class="post">Alcoholic drink</span>
 						<ul class="icon">
 							<li><a href="#" class="fa fa-search"></a></li>
 							<li><a href="#" class="fa fa-link"></a></li>
@@ -155,8 +144,8 @@
 						src="https://www.thecocktaildb.com/images/ingredients/Tequila.png"
 						alt="">
 					<div class="box-content">
-						<h3 class="title">Kristiana</h3>
-						<span class="post">Web Designer</span>
+						<h3 class="title">Tequila</h3>
+						<span class="post">Alcoholic drink</span>
 						<ul class="icon">
 							<li><a href="#" class="fa fa-search"></a></li>
 							<li><a href="#" class="fa fa-link"></a></li>
@@ -179,6 +168,9 @@
 	</footer>
 
 	<!-- Scripts -->
+	<script type="text/javascript" src="/scripts/login.js"></script>
+	<script type="text/javascript" src="/scripts/search.js"></script>
+	<!-- <script type="text/javascript" src="/scripts/cocktails_script.js"></script> -->
 	<script type="text/javascript" src="script.js"></script>
 </body>
 </html>

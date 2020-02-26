@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Bartender App</title>
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+	<link rel="stylesheet" href="style.css">
+	<!-- 	bootstrap js -->
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+	</script>
+
+	<!-- 
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script> -->
+
+</head>
+
+<body>
+	<nav>
+		<div class="logo">
+			<a href="index.html">Bar<em>tender</em></a>
+			<div id="iconLogged">
+				<i class="fa fa-user-circle"></i>&nbsp <span id="loggedUser"></span>
+			</div>
+		</div>
+		<div class="menu-icon">
+			<div class="tab" id="tabLogout"><a href="#"><i class="fa fa-sign-out"></i> Logout</a></div>
+			<div class="tab" id="tabRegister"><a href="/login.html"><i class="fa fa-list-alt"></i> Register</a></div>
+			<div class="tab" id="tabLogin"><a href="/login.html"><i class="fa fa-sign-in"></i> Login</a></div>
+			<div class="tab" id="tabFavorites"><a href="#"><i class="fa fa-heart"></i> Favorites</a>
+			</div>
+			<div class="tab"><a href="/all_cocktails.html"><i class="fa fa-glass"></i> Cocktails</a></div>
+			<div class="tab"><a class="active" href="/search_cocktails.html"><i class="fa fa-search"></i> Search</a>
+			</div>
+			<div class="tab"><a href="/index.html"><i class="fa fa-home"></i> Home</a></div>
+		</div>
+	</nav>
+
+	<div id="video-container">
+		<div class="video-overlay"></div>
+		<div class="video-content">
+			<div class="inner">
+				<h1>
+					Welcome to Bar<em>tender</em>
+				</h1>
+				<p>Website for world's most famous cocktails</p>
+				<p>Recipes, Ingredients and more...</p>
+				<form class="homeForm" id="homeForm" method="" action="#">
+					<!-- action="find_cocktails.html" -->
+					<div class="input-group">
+						<input type="text" id="cocktailName" name="cocktailName" placeholder="Search for a Cocktail...">
+						<button type="submit" class="btn btn-info" id="getCocktail">
+							<i class="fa fa-search"></i>
+						</button>
+						<!-- <a href="#" id="getCocktail" class="btn btn-info"><i class="fa fa-search"></i></a> -->
+					</div>
+				</form>
+
+			</div>
+		</div>
+		<video autoplay="" loop="" muted>
+			<source src="images/cocktails-video.mp4" type="video/mp4" />
+		</video>
+	</div>
+
+	<div class="mt-30 row d-flex justify-content-center ">
+
+		<div class="col-md-8">
+			<div class="row search-panel">
+				<div class="col-md-3 col-sm-12 boxes">
+
+					<div class="row">
+						<div class="col-md-12  ">
+							<div class="row  d-flex justify-content-end">
+								<label for="isAlcoholic">Alcoholic:</label>
+
+								<div class="col-md-6">
+									<input type="checkbox" class="form-control" id="isAlcoholic" name="isAlcoholic">
+								</div>
+							</div>
+
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="row d-flex justify-content-end">
+								<label for="isNonAlcoholic">Non Alcoholic: </label>
+								<div class="col-md-6 ">
+									<input type="checkbox" class="form-control" id="isNonAlcoholic"
+										name="isNonAlcoholic">
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 mt-10 col-sm-12 mb-3 ">
+					<label for="ingredients" class="ml-20">Select Ingredients: </label>
+					<select multiple class="form-control" id="ingredients" name="ingredients">
+						<option value="1">Vodka</option>
+						<option value="2">Gin</option>
+						<option value="3">Whiskey</option>
+						<option value="4">Bourbon</option>
+						<option value="5">Tequila</option>
+						<option value="6">Champagne</option>
+						<option value="7">White Rum</option>
+						<option value="8">Lime Juice</option>
+						<option value="9">Orange Juice</option>
+						<option value="10">Grenadine</option>
+					</select>
+				</div>
+				<div class=" d-flex justify-content-center col-md-3 mt-3 mb-3 col-sm-12">
+					<button type="submit" class="btn btn-lg btn-dark" id="searchCocktails">
+						<i class="fa fa-search"></i> Search
+					</button>
+				</div>
+
+			</div>
+		</div>
+
+
+		<div class="col-md-12 heading">
+			<h3>
+				Cocktails found:
+			</h3>
+		</div>
+
+		<ul class="list-group" id="contentList">
+			<!-- style="min-height: 241px;" -->
+
+			<li class="list-group-item" style="display: none" id="cloneMe">
+				<div class="row">
+
+
+					<!-- 			<div class="col-md-2 col-sm-4 item-container"> -->
+					<!-- 				<div class="box6"> -->
+					<!-- 					<img -->
+					<!-- 						src="https://www.thecocktaildb.com/images/ingredients/Bourbon.png" -->
+					<!-- 						alt=""> -->
+					<!-- 					<div class="box-content"> -->
+					<!-- 						<h3 class="title">Williamson</h3> -->
+					<!-- 						<span class="post">Web Developer</span> -->
+					<!-- 						<ul class="icon"> -->
+					<!-- 							<li><a href="#" class="fa fa-search"></a></li> -->
+					<!-- 							<li><a href="#" class="fa fa-link"></a></li> -->
+					<!-- 						</ul> -->
+					<!-- 					</div> -->
+					<!-- 				</div> -->
+					<!-- 			</div> -->
+
+					<div class=" col-md-4 col-sm-2 col-xs-3 box6">
+						<img src="images/empty.jpg" class="thumbnail img-responsive">
+					</div>
+					<div class="col-md-4 col-sm-7 col-xs-6">
+						<h4></h4>
+						<!-- <span class="is-alcoholic"></span> -->
+						<p></p>
+						<div class="title"><i>Ingredients:</i></div>
+						<h6 class="ingredients"></h6>
+					</div>
+					<div class="row">
+						<div class=" col-md-6 col-sm-3 col-xs-3">
+							<button type="button" class="btn btn-secondary pull-right remove-post edit-cocktail-btn">
+								<span class="glyphicon glyphicon-edit"></span>
+								<span class="hidden-xs">  Edit  </span>
+							</button>
+						</div>
+						<div class=" col-md-6 col-sm-3 col-xs-3">
+							<button type="button" class="btn btn-danger pull-right remove-post delete-cocktail-btn">
+								<span class="glyphicon glyphicon-remove"></span>
+								<span class="hidden-xs">Delete</span>
+							</button>
+						</div>
+					</div>
+					
+				</div>
+			</li>
+		</ul>
+
+	</div>
+
+	<footer>
+		<div class="footer-container">
+			<div class="col-md-12">
+				<p>
+					Copyright &copy; <i><b>2019 Goat LTD</b></i> | Designed by Velina
+				</p>
+			</div>
+		</div>
+	</footer>
+
+	<!-- Scripts -->
+	<script type="text/javascript" src="/scripts/login.js"></script>
+	<script type="text/javascript" src="/scripts/search.js"></script>
+	<script type="text/javascript" src="script.js"></script>
+</body>
+
+</html>

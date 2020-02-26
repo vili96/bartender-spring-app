@@ -3,6 +3,7 @@ package com.spring.bartenderapp.controllers;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Optional;
+import java.util.Set;
 
 import javax.servlet.http.HttpSession;
 
@@ -23,13 +24,16 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import com.spring.bartenderapp.WebSecurityConfig;
+import com.spring.bartenderapp.models.Role;
 import com.spring.bartenderapp.models.User;
+import com.spring.bartenderapp.repositories.IRoleRepo;
 import com.spring.bartenderapp.repositories.IUserRepo;
 
 @RestController
 public class LoginController {
 
 	private IUserRepo userRepo;
+	private IRoleRepo roleRepo;
 	private WebSecurityConfig webSecurityConfig;
 
 	public LoginController(IUserRepo userRepo, WebSecurityConfig webSecurityConfig) {
@@ -42,7 +46,7 @@ public class LoginController {
 			@RequestParam(value = "password") String password,
 			@RequestParam(value = "repeatPassword") String repeatPassword) {
 
-		if (password.equals(repeatPassword)) {
+		if (password.equals(repeatPassword)) { 
 			User user = new User(username, hashPassword(password));
 
 			return userRepo.saveAndFlush(user);
@@ -126,7 +130,22 @@ public class LoginController {
 
 		return new ResponseEntity<>(0, HttpStatus.UNAUTHORIZED);
 	}
-	
+	  
+//	@GetMapping(path = "/get_logged_user_role")
+//	public ResponseEntity<Integer> getLoggedUserRole(HttpSession session) {
+//
+//		User user = (User) session.getAttribute("user");
+//
+//		if (user != null) {
+//		Set<Role> currentUserRoles = roleRepo.findByUser(user);
+//	
+//			
+//			return new ResponseEntity<>(user.getRoles().get(0).getId(), HttpStatus.OK);
+//		}
+//
+//		return new ResponseEntity<>(0, HttpStatus.UNAUTHORIZED);
+//	}
+//	
 	@GetMapping(path = "/get_logged_username")
 	public String getLoggedUsername(HttpSession session) {
 
@@ -138,7 +157,7 @@ public class LoginController {
 
 		return null;
 	}
-
+ 
 
 	private String hashPassword(String text) {
 

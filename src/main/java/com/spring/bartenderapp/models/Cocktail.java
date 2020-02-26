@@ -14,6 +14,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name = "cocktails")
 public class Cocktail {
@@ -37,12 +39,11 @@ public class Cocktail {
 	@ManyToMany()
 	@JoinTable(name = "cocktail_ingredient", joinColumns = @JoinColumn(name = "cocktail_id"), inverseJoinColumns = @JoinColumn(name = "ingredient_id"))
 	private Set<Ingredient> ingredients;
-	
+          
 	@ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
 	
-	//ctor
 	public Cocktail() {	}
 
 	public int getId() {
@@ -80,7 +81,7 @@ public class Cocktail {
 	public boolean isAlcoholic() {
 		return isAlcoholic;
 	}
-
+ 
 	public void setAlcoholic(boolean isAlcoholic) {
 		this.isAlcoholic = isAlcoholic;
 	}

@@ -18,6 +18,10 @@ body{
   right:0;
 }
 
+.toHideAndShow{
+  display: none;
+}
+
 .tab {
 	display: flex;                  
   	flex-direction: row; 
@@ -176,15 +180,43 @@ nav {
     height: 200px;
 } */
 
+.layout-to-change:not(:first-child){
+  background-color: rgba(255,255,255,0.9);
+  width: 30%;
+  display: inline-block !important;
+  height: 300px;
+}
+
+/* ul#contentList {
+} */
+
+.ulDisplayInline{
+  display: inline-block;
+
+}
+
+.title{
+  font-size: 28px;
+}
+
 .container{
   font-family: 'Kanit', sans-serif;
   /* margin-left: 5%;
   margin-right: 5%; */
 }
 
-/* .admin-panel{ */
-/* 	display: */
-/* } */
+.search-panel{ 
+  font-weight: bold;
+  margin-top: 25px;
+  background-color: rgba(255,255,255,0.5);
+ }
+
+ .search-panel div.boxes div.row{
+  margin-top: 13px;
+  margin-bottom: 5px;
+ }
+
+
 #add-form{
 	text-align:center;
 }
