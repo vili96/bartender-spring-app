@@ -675,3 +675,6 @@ SELECT * FROM COCKTAIL_INGREDIENT where ingredient_id = 1 or  ingredient_id = 3 
 2019-12-15 14:39:03 jdbc[13]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "USER_ROLE[*]"; expected "UPDATE, USE"; SQL statement:
 USER_ROLE [42001-200]
+2020-03-06 00:41:25 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "JAVA[*] -CP H2.JAR ORG.H2.TOOLS.SERVER -TCP -TCPALLOWOTHERS"; SQL statement:
+java -cp h2.jar org.h2.tools.Server -tcp -tcpAllowOthers [42000-200]

@@ -1,29 +1,19 @@
 package com.spring.bartenderapp.controllers;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
-
-import javax.servlet.http.HttpSession;
-
-import org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.annotation.Secured;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.spring.bartenderapp.models.Cocktail;
 import com.spring.bartenderapp.models.Ingredient;
 import com.spring.bartenderapp.models.User;
 import com.spring.bartenderapp.repositories.ICocktailRepo;
 import com.spring.bartenderapp.repositories.IIngredientRepo;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import javax.servlet.http.HttpSession;
+import java.util.*;
 
 @RestController
 public class CocktailController {
